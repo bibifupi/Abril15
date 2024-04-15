@@ -1,0 +1,42 @@
+<h1>Monta tu PC</h1>
+Tamaño de la RAM:
+@for(elemento of ramSizes; track elemento.id){
+{{elemento.size}}<input type="radio" name="ramSize" [value]="elemento.size" [(ngModel)]="selectedRamSize" />
+}@empty{
+<p>No hay datos que mostrar</p>
+}
+<br>
+
+Procesador:
+<select [(ngModel)]="selectedProcesador" name="procesador">
+    @for(elemento of procesador; track elemento.id){
+        <option type="radio" name="procesador" [value]="elemento.proc">{{elemento.proc}}
+        </option>
+        }@empty{
+        <p>No hay datos que mostrar</p>
+        }
+  </select>
+
+  <br>
+  Tarjeta gráfica: <input type="checkbox" name="gráfica" [(ngModel)]="selectedGrafica">
+  <br>
+
+  Discos Duros:
+@for(elemento of dD; track elemento.id){
+{{elemento.disco}}<input type="radio" name="dD" [value]="elemento.disco" [(ngModel)]="selectedDD" />
+}@empty{
+<p>No hay datos que mostrar</p>
+}
+<br>
+
+Fuentes de Alimentación:
+<select [(ngModel)]="selectedAlimentacion" name="alimentacion">
+    @for(elemento of alimentacion; track elemento.id){
+        <option type="radio" name="alimentacion" [value]="elemento.al">{{elemento.al}}
+        </option>
+        }@empty{
+        <p>No hay datos que mostrar</p>
+        }
+  </select>
+  <br>
+  <button type="submit"(click)="mostrarSeleccion()">Mostrar</button>

@@ -1,0 +1,22 @@
+<h1>Usando directivas</h1>
+Género:
+@for(elemento of genero; track elemento.id){
+{{elemento.gen}}<input type="radio" name="genero" [value]="elemento.gen" [(ngModel)]="selectedGenero" />
+}
+<br>
+
+
+Nacionalidad:
+<select [(ngModel)]="selectedNacionalidad" name="nacionalidad">
+    @for(elemento of nacionalidad; track elemento.id){
+    <option type="radio" name="destino" [value]="elemento.nac">{{elemento.nac}}
+    </option>
+    }@empty{
+    <p>No hay datos que mostrar</p>
+    }
+</select>
+<br>
+Lenguajes de Programación: C++ <input type="checkbox" name="C++" [(ngModel)]="selectedC">
+Java<input type="checkbox" name="Java" [(ngModel)]="selectedJava">JS<input type="checkbox" name="JS" [(ngModel)]="selectedJS">Python<input type="checkbox" name="Python" [(ngModel)]="selectedP">
+  <br>
+  <button type="submit"(click)="mostrarSeleccion()">Mostrar</button>
